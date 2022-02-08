@@ -13,7 +13,7 @@
 
   <div class="container">
     <div class="d-flex flex-wrap">
-      <div class="miss" v-for="jo in rezz">
+      <div class="miss" v-for="jo in titleproduct">
 
        <div class="card" style="width: 18rem;">
         <img width="300" height="200" :src="require(`../static/img/${jo.img}`)" class="card-img-top" alt="...">
@@ -60,11 +60,18 @@
         titleproduct:[],         
         plus:0,        
         rezz:[],
-        datat:null,
+        // datat:null,
       }
     },
     methods:{
-      boomer(){      
+      boomer(){    
+      let rezz={
+        img:'',
+        name:'',
+        age:'',
+        
+       };     
+       this.titleproduct.push(rezz)
         fetch('http://localhost:3000',{ 
           method: 'GET',
           headers: {
@@ -73,7 +80,7 @@
         })
         .then(res=>res.json())                 
         .then(data=>this.rezz=data)       
-          
+
       }
     }
 
